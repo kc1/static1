@@ -1,12 +1,22 @@
 {
-  "name": "site",
+  "name": "static1",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kc1/static1.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kc1/static1/issues"
+  },
+  "homepage": "https://github.com/kc1/static1#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
