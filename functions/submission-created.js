@@ -5,6 +5,7 @@ require('dotenv').config();
 // const fetch = request('node-fetch').default;
 const fetch = require('node-fetch').default
 
+  console.log('to here');
 // const { EMAIL_TOKEN } = process.env
 exports.handler = async event => {
 
