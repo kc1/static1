@@ -1,7 +1,7 @@
 // https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget/
 
 // require('dotenv').config();
-// const fetch = require('node-fetch');
+const fetch = require('node-fetch');
 const https = require("https");
 
 // const fetch = request('node-fetch').default;
@@ -47,6 +47,8 @@ exports.handler = async event => {
     }
 
   };
+
+  console.log(email);
 
   const req = https.request(endpoint, options, (res) => {
      console.log('statusCode:', res.statusCode);
