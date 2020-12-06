@@ -35,7 +35,7 @@ exports.handler = async event => {
     'last_name': asking,
     'lists[]': '175546'
   };
-  var encoded = await Object.entries(formData).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+  var encoded = Object.entries(formData).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
 
   var endpoint = 'https://api.sendfox.com/contacts/?' + encoded;
 
@@ -48,9 +48,9 @@ exports.handler = async event => {
 
   };
 
-  const req = await https.request(endpoint, options, (res) => {
-     await console.log('statusCode:', res.statusCode);
-    await console.log('headers:', res.headers);
+  const req = https.request(endpoint, options, (res) => {
+     console.log('statusCode:', res.statusCode);
+    console.log('headers:', res.headers);
 
     res.on('data', (d) => {
       process.stdout.write(d);
