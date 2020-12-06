@@ -14,7 +14,7 @@ console.log('to here');
 // 1:52:15 PM: 2020-12-05T18:52:15.872Z	2107bd44-ece9-495a-afd7-b66502641175	INFO	undefined
 // 1:52:15 PM: Duration: 3.30 ms	Memory Usage: 67 MB	Init Duration: 164.43 ms	
 // 
-// exports.handler = async event => {
+exports.handler = async event => {
 
   // EMAIL, ASKING
 
@@ -62,6 +62,4 @@ console.log('to here');
   });
   req.end();
 
-// }
-
-return;
+}
