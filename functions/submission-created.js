@@ -95,7 +95,7 @@ exports.handler = async event => {
     console.error(e);
   });
 
-  req.write(data)
+  req.write(formData);
   req.end();
 
   return {
