@@ -95,11 +95,11 @@ exports.handler = async event => {
     console.error(e);
   });
 
-  req.write(formData);
+  req.write(data);
   req.end();
 
   return {
     statusCode: 200,
-    body: formData
+    body: data
   };
 }
