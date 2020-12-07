@@ -39,17 +39,20 @@ exports.handler = async event => {
 
   var endpoint = 'https://api.sendfox.com/contacts/?' + encoded;
 
+  const data = JSON.stringify(formData);
   const options = {
 
     // hostname: 'sendfox.com',
     method: 'POST',
+    connection: 'keep-alive',
+
     headers: {
       'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjU4MTA5OWQ5NjI0MzU4YjMxNGQxOWI1MmE5NDJkMWZiM2I0NjQzODZkYmMzMGYwMzY2MmZjMDEzYjJjZDI1OGYyMWU5YjZkYmI4ZTllNzJmIn0.eyJhdWQiOiI0IiwianRpIjoiNTgxMDk5ZDk2MjQzNThiMzE0ZDE5YjUyYTk0MmQxZmIzYjQ2NDM4NmRiYzMwZjAzNjYyZmMwMTNiMmNkMjU4ZjIxZTliNmRiYjhlOWU3MmYiLCJpYXQiOjE2MDI3MjAzMzUsIm5iZiI6MTYwMjcyMDMzNSwiZXhwIjoxNjM0MjU2MzM1LCJzdWIiOiIzNDE1NSIsInNjb3BlcyI6W119.aPIpeO8toorud_EIGlvHdIqANIxblv7Pjhc8HyNldZgki-aCCDXUBSvrrsVR5bpP_XIAvw8n1M1loDT8Ag2JissJ5knFD-Jn1yKUzkL0SnkA6kymhFppo0ueO5kH7LUElBZWOUcqBmJse8uyQ1eEDDQvurxoKpcfLKgxXWUcFGdnqaTRGTnBW1oilG132LLH4N2rnZzKa27gNPj0cD2jSfaQuDGeZxyCgwl7rp2YKLjKcRR1lMA1fs4SCdbrulZeavr_KxcSMJvxDw-jAcsnQIGMUBgw_7Tekn3knJ5qctTdWB_yeoEXxsNpL2nQTy-Q_5n9oS4t6mHkNCEy4HQ6CQlgjqrDUWRzAgUGZ0bw9ngtGVuGo1H8J9_5YqET6REoX34E04vJHZgpdOy5IAC3fKaRA2aUBn0uUwuvHVFkSMr4gGPr2QGHdIyGDM5LFu9ypF9cgRWHI42BqhNEsL9xGk9epoMmku3wACnBLXxaN5v2MV6oaIVPq_rsdmtAI_oB2_5PbbjaaAY5rj6y5garzRxm7Svlv0OwsMWU6BlCrZO-v2bHGb3fdVcB__uJ8_19qvoH03ehY-EkKwRQg65EOSn6SqL624mIO38t-K7YLRso-S9_f9gSCkVyy9nVTS6uZEN3hHvRYhG7zWTTPiCaBDkxbfg4xDlgiQnsICvJMos',
       'Content-Type': 'application/json',
-    }
+    },
+     'content-length': data.length,
 
   };
-  const data = JSON.stringify(formData);
   console.log(email);
 
   const req = https.request(endpoint, options, (res) => {
