@@ -87,7 +87,7 @@ exports.handler = async event => {
     console.log('headers:', res.headers);
 
     res.on('data', (d) => {
-      process.stdout.write(d);
+      console.log(d);
     });
   });
 
@@ -99,7 +99,7 @@ exports.handler = async event => {
   req.end();
 
   return {
-    statusCode: 200
-    // body: JSON.stringify(data)
+    statusCode: 200,
+    body: formData
   };
 }
