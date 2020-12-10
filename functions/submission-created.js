@@ -10,7 +10,6 @@ const https = require("https");
 console.log('to here');
 const { LIST } = process.env;
 const { B } = process.env;
-// 1:52:15 PM: 2020-12-05T18:52:15.866Z	undefined	INFO	to here
 
 // 1:52:15 PM: 2020-12-05T18:52:15.872Z	2107bd44-ece9-495a-afd7-b66502641175	INFO	undefined
 // 1:52:15 PM: Duration: 3.30 ms	Memory Usage: 67 MB	Init Duration: 164.43 ms	
@@ -19,7 +18,7 @@ exports.handler = async event => {
 
   // EMAIL, ASKING
 
-  // console.log(event.data);
+  console.log('hi');
   // const email = 'bill66666@mailinator.com';
   const email = JSON.parse(event.body).payload.data.EMAIL
 
