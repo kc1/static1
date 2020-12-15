@@ -33,8 +33,8 @@
         'email': email,
         'first_name': '',
         'last_name': asking,
-        'lists[]': '175546',
-        'lists[]': LIST
+        'lists[]': '175546'
+        // 'lists[]': LIST
       };
       var encoded = Object.entries(formData).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
 
