@@ -11,6 +11,7 @@
     const { LIST } = process.env;
     const { B } = process.env;
 
+        var statusCode = 200;
     // 1:52:15 PM: 2020-12-05T18:52:15.872Z	2107bd44-ece9-495a-afd7-b66502641175	INFO	undefined
     // 1:52:15 PM: Duration: 3.30 ms	Memory Usage: 67 MB	Init Duration: 164.43 ms	
     // 
@@ -64,7 +65,7 @@
       // exports.handler = async event => {
         // const email = JSON.parse(event.body).payload.email
         // console.log(`Recieved a submission: ${email}`)
-        return fetch(endpoint, {
+        var resp = fetch(endpoint, {
           method: 'POST',
           headers: {
             Authorization: B,
@@ -73,9 +74,13 @@
           body: JSON.stringify({ formData }),
         })
           .then(response => response.json())
-          .then(data => {
-            console.log(`Submitted to Buttondown:\n ${data}`)
+          .then(formData => {
+            console.log(`Submitted to Buttondown:\n ${formData}`)
           })
           .catch(error => ({ statusCode: 422, body: String(error) }))
       // } 
+      console.log('resp ');
+      console.log(resp);
     }
+
+    return statusCode;
