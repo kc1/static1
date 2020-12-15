@@ -15,7 +15,7 @@ const {
   B
 } = process.env;
 
-var statusCode = 200;
+// var statusCode = 200;
 // 1:52:15 PM: 2020-12-05T18:52:15.872Z	2107bd44-ece9-495a-afd7-b66502641175	INFO	undefined
 // 1:52:15 PM: Duration: 3.30 ms	Memory Usage: 67 MB	Init Duration: 164.43 ms	
 // 
@@ -30,13 +30,13 @@ exports.handler = async event => {
   console.log('hi');
   console.log(LIST);
   console.log(B);
-  // const email = 'bill66666@mailinator.com';
+  // const email = 'jbill6666766@mailinator.com';
   const email = JSON.parse(event.body).payload.data.EMAIL
 
 
   console.log(email);
   // const asking = '70000';
-  const asking = JSON.parse(event.body).payload.data.ASKING
+  const asking = JSON.parse(event.body).payload.data.ASKING.toString();
   // console.log(`Recieved a submission: ${email}`)
 
   console.log(asking);
@@ -44,33 +44,36 @@ exports.handler = async event => {
     'email': email,
     'first_name': '',
     'last_name': asking,
-    'lists[]': '175546'
+    'lists[]': LIST
   };
   var encoded = Object.entries(formData).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
 
   var endpoint = 'https://api.sendfox.com/contacts/?' + encoded;
 
-  var resp = fetch(endpoint, {
+  return fetch(endpoint, {
       method: 'POST',
       headers: {
         Authorization: B,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        formData
-      }),
+      // body: JSON.stringify({
+        // formData
+      // }),
     })
     .then(response => response.json())
     .then(formData => {
-      console.log(`Submitted to Buttondown:\n ${formData}`)
+      console.log(`Submitted to api:\n ${formData}`);
+    return {
+        statusCode: 200
+      }
     })
     .catch(error => ({
       statusCode: 422,
       body: String(error)
     }))
   // } 
-  console.log('resp ');
-  console.log(resp);
-}
+  // console.log('resp ');
+  // console.log(resp);
 
-return statusCode;
+
+}
