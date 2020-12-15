@@ -7,7 +7,7 @@ const https = require("https");
 // const fetch = request('node-fetch').default;
 // const fetch = require('node-fetch').default
 
-// console.log('to here');
+console.log('to here');
 const { LIST } = process.env;
 const { B } = process.env;
 
