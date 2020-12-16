@@ -28,6 +28,7 @@ exports.handler = async event => {
   // EMAIL, ASKING
 
   console.log('hi');
+  console.log('hi');
   console.log(LIST);
   console.log(B);
   // const email = 'jbill6666766@mailinator.com';
